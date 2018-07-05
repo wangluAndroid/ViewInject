@@ -90,6 +90,8 @@ public class InjectUtils {
         Class<?> aClass = object.getClass();
         Method[] methods = aClass.getDeclaredMethods();
         for (Method method : methods) {
+            //不能使用下面的原因，我们这个方法是为了实现不止onClickListen监听，而是为了实现全部的，做到可扩展，
+            //不能直接将要实现的监听固定写死；
 //            OnClickInject annotation = method.getAnnotation(OnClickInject.class);
             //1.获得此方法上所有的注解数组
             Annotation[] annotations = method.getAnnotations();
