@@ -15,10 +15,13 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //布局注入
         InjectUtils.setDebug(true);
+
+        //布局注入
         InjectUtils.layoutInject(this);
+        //view注入
         InjectUtils.viewInject(this);
+        //监听注入
         InjectUtils.listenerInject(this);
 
     }

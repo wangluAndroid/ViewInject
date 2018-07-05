@@ -25,7 +25,7 @@ public class MainActivity extends BaseActivity {
 
     }
 
-    @OnClickInject(R.id.bt_button)
+    @OnClickInject({R.id.bt_button})
     public void onclickTest(View view) {
         Toast.makeText(this, "-------点击了------", Toast.LENGTH_SHORT).show();
     }

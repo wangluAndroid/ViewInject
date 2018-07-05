@@ -282,7 +282,58 @@ public class ListenerInvocationHandler implements InvocationHandler {
     }
 }
 ```
-#### 六、[类库代码和使用Demo已经上传到github，如需参考请点击](https://github.com/wangluAndroid/ViewInject/tree/master)
+
+##### 六、具体使用
+
+```
+public class BaseActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        InjectUtils.setDebug(true);
+        
+        //布局注入
+        InjectUtils.layoutInject(this);
+        //view注入
+        InjectUtils.viewInject(this);
+        //监听注入
+        InjectUtils.listenerInject(this);
+
+    }
+}
+
+```
+
+```
+
+@LayoutInject(R.layout.activity_main)
+public class MainActivity extends BaseActivity {
+
+
+    @ViewInject(R.id.bt_button)
+    private Button button ;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        Toast.makeText(this, "------->"+button.toString(), Toast.LENGTH_SHORT).show();
+
+
+    }
+
+    @OnClickInject({R.id.bt_button})
+    public void onclickTest(View view) {
+        Toast.makeText(this, "-------点击了------", Toast.LENGTH_SHORT).show();
+    }
+}
+
+```
+
+____
+
+
+#### 七、[类库代码和使用Demo已经上传到github，如需参考请点击](https://github.com/wangluAndroid/ViewInject/tree/master)
 
 
     
